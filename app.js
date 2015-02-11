@@ -21,14 +21,22 @@ swig.setDefaults({ cache: false });
 //res.locals = {};
 //swig.set('title', 'APP SET TITLE INSERTION!');
 
-app.get('/', function(req, res){
-    //res.send('Hello World! Updated live!!!');
-    var people = [{name: 'Full'}, {name: 'Stacker'}, {name: 'Son'}];
+// Adding the Swig Templating Engine
+// commented out following old route for Routing and Views
+// app.get('/', function(req, res){
+//     //res.send('Hello World! Updated live!!!');
+//   var people = [{name: 'Full'}, {name: 'Stacker'}, {name: 'Son'}];
     
-	res.render( 'index', {title: 'Hall of Fame', people: people} );
+// 	res.render( 'index', {title: 'Hall of Fame', people: people} );
 
-	//res.send(swig.renderFile('/Users/randallwong/Desktop/FoundationsPrework/twitter-js/views/index.html'));
+// 	//res.send(swig.renderFile('/Users/randallwong/Desktop/FoundationsPrework/twitter-js/views/index.html'));
 
-});
+// });
+
+// Routing and Views
+// add routes from routes/index.js
+var routes = require('./routes/');
+app.use('/', routes);
+app.use(express.static(__dirname + '/public'));
 
 app.listen(3000);
