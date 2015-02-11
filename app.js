@@ -17,6 +17,8 @@ swig.setDefaults({ cache: false });
 
 //app.set('title', 'APP SET TITLE INSERTION!');
 
+// pass object here
+//res.locals = {};
 //swig.set('title', 'APP SET TITLE INSERTION!');
 
 app.get('/', function(req, res){
