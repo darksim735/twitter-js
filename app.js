@@ -14,13 +14,19 @@ swig.setDefaults({ cache: false });
 
 //app.set('title', 'APP SET TITLE INSERTION!');
 
+// pass object here
+//res.locals = {};
 
 //swig.set('title', 'APP SET TITLE INSERTION!');
+
+var people = [{name: 'Full'}, {name: 'Stacker'}, {name: 'Son'}];
 
 app.get('/', function(req, res){
     //res.send('Hello World! Updated live!!!');
 
-res.send(swig.renderFile('/Users/randallwong/Desktop/FoundationsPrework/twitter-js/views/index.html', {title: 'APP SET TITLE INSERTION!'}));
+res.send(swig.renderFile('/Users/randallwong/Desktop/FoundationsPrework/twitter-js/views/index.html', {title: 'Hall of Fame', people: people}));
+
+
 
 
 //res.send(swig.renderFile('/Users/randallwong/Desktop/FoundationsPrework/twitter-js/views/index.html'));
