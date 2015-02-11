@@ -23,7 +23,8 @@
     
       <!-- display tweets here -->
       {% for tweet in tweets %}
-        <li>{{tweet.text}}</li>
+        <!--<li>{{tweet.name}}<br />{{tweet.text}}</li>-->
+        <li><a href="/users/{{tweet.name}}">{{tweet.name}}</a> - {{ tweet.text }}<br /><a href="/users/{{tweet.name}}/tweets/{{tweet.id}}">Read Tweet</a></li>
       {% endfor %}
       
     </div>
