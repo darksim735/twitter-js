@@ -28,7 +28,10 @@ router.post('/submit', function(req, res) {
   tweetBank.add(name, text);
 
   // test
-  io.sockets.emit('new_tweet', {heading: 'New Tweet', name: name, text: text});
+  var tweets = tweetBank.list();
+  var newTweet = tweets[tweets.length - 1];
+  io.sockets.emit('new_tweet', {heading: 'New Tweet', id: newTweet.id, name: newTweet.name, text: newTweet.text});
+  // io.sockets.emit('new_tweet', {heading: 'New Tweet', name: name, text: text});
 
   res.redirect('/');
 });
