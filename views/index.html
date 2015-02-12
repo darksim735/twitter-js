@@ -26,7 +26,20 @@
         <!--<li>{{tweet.name}}<br />{{tweet.text}}</li>-->
         <li><a href="/users/{{tweet.name}}">{{tweet.name}}</a> - {{ tweet.text }}<br /><a href="/users/{{tweet.name}}/tweets/{{tweet.id}}">Read Tweet</a></li>
       {% endfor %}
-      
+
+      <!-- adding a form -->
+      {% if showForm %}
+      <form action="/submit" method="POST">
+        <label for="name_field">Name:</label>
+        <input name="name" type = 'text' value="{{name}}" id="name_field" />
+
+        <label for="text_field">Text:</label>
+        <input name="text" type="text" id="text_field" style="width: 350px;" />
+
+        <input type="submit" value="Submit" />
+      </form>
+      {% endif %}
+
     </div>
   </div>
     
