@@ -2,6 +2,7 @@ var express = require('express');
 var swig = require('swig');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
+var socketio = require('socket.io');
 
 var app = express();
 
@@ -43,7 +44,10 @@ swig.setDefaults({ cache: false });
 // Routing and Views
 // add routes from routes/index.js
 var routes = require('./routes/');
-app.use('/', routes);
+app.use( '/', routes(io) );
+//app.use('/', routes);
 app.use(express.static(__dirname + '/public'));
 
-app.listen(3000);
+// app.listen(3000);
+var server = app.listen(3000);
+var io = socketio.listen(server);
