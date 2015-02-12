@@ -41,6 +41,10 @@ swig.setDefaults({ cache: false });
 
 // });
 
+// app.listen(3000);
+var server = app.listen(3000);
+var io = socketio.listen(server);
+
 // Routing and Views
 // add routes from routes/index.js
 var routes = require('./routes/');
@@ -48,6 +52,4 @@ app.use( '/', routes(io) );
 //app.use('/', routes);
 app.use(express.static(__dirname + '/public'));
 
-// app.listen(3000);
-var server = app.listen(3000);
-var io = socketio.listen(server);
+

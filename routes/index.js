@@ -17,8 +17,8 @@ router.get('/users/:name', function(req, res) {
 
 router.get('/users/:name/tweets/:id', function(req, res) {
   var name = req.params.name;
-  var list = tweetBank.find( {name: name} );
-  var id = tweetBank.find( {id: id} );
+  var id = parseInt(req.params.id);
+  var list = tweetBank.find( {id: id} );
   res.render( 'index', { title: 'Twitter.js - Posts by ' + name, tweets: list } );
 });
 
@@ -26,10 +26,12 @@ router.post('/submit', function(req, res) {
   var name = req.body.name;
   var text = req.body.text;
   tweetBank.add(name, text);
+
+  // test
+  io.sockets.emit('new_tweet', {heading: 'New Tweet', name: name, text: text});
+
   res.redirect('/');
 });
-
-io.sockets.emit('new_tweet', { /* tweet info */ });
 
 return router;
 

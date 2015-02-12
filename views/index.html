@@ -19,13 +19,16 @@
       <b>Your Name</b><br>
       100 followers
     </div>
-    <div class="col-md-9">
+    <div id="newTweet" class="col-md-9">
     
       <!-- display tweets here -->
       {% for tweet in tweets %}
         <!--<li>{{tweet.name}}<br />{{tweet.text}}</li>-->
         <li><a href="/users/{{tweet.name}}">{{tweet.name}}</a> - {{ tweet.text }}<br /><a href="/users/{{tweet.name}}/tweets/{{tweet.id}}">Read Tweet</a></li>
       {% endfor %}
+
+      <h3>New Tweet</h3>
+      <div></div>
 
       <!-- adding a form -->
       {% if showForm %}
