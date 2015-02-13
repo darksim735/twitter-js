@@ -57,3 +57,9 @@ code {
 .content .by {
   font-weight: bold;
 }
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}

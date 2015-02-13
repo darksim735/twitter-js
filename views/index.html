@@ -19,12 +19,15 @@
       <b>Your Name</b><br>
       100 followers
     </div>
-    <div id="newTweet" class="col-md-9">
+    <div class="col-md-9">
     
       <!-- display tweets here -->
       {% for tweet in tweets %}
         <!--<li>{{tweet.name}}<br />{{tweet.text}}</li>-->
-        <li><a href="/users/{{tweet.name}}">{{tweet.name}}</a> - {{ tweet.text }}<br /><a href="/users/{{tweet.name}}/tweets/{{tweet.id}}">Read Tweet</a></li>
+
+        <div id="newTweet" class="tweetbox"><img>
+        <div class="content"><a href="/users/{{tweet.name}}">{{tweet.name}}</a> - {{ tweet.text }}<br /><a href="/users/{{tweet.name}}/tweets/{{tweet.id}}">Read Tweet</a></div>
+        </div>
       {% endfor %}
 
       <h3>New Tweet</h3>
