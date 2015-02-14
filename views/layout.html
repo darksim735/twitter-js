@@ -100,10 +100,11 @@
       console.log('test');
       console.log(tweet);
       
-      // alert('Refreshing... check the console...');
+      //alert('Refreshing... check the console...');
       // some logic to add the new tweet to the DOM…
-      var HTMLNewTweet = '<li><a href="/users/' + tweet.name +'">' + tweet.name +'</a> - ' + tweet.text + '<br /><a href="/users/' + tweet.name + '/tweets/' + tweet.id +'">Read Tweet</a></li>';
-      $('#newTweet:last').append(HTMLNewTweet);
+      var HTMLNewTweet = '<div class=\"tweetbox\"><img><div class=\"content\"><a href=\"/users/' + tweet.name +'\">' + tweet.name +'</a> - ' + tweet.text + '<br /><a href=\"/users/' + tweet.name + '/tweets/' + tweet.id +'\">Read Tweet</a></div></div>';
+
+      $('.tweetbox:last').append(HTMLNewTweet);
       
     }); 
   </script>

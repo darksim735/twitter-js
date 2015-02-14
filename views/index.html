@@ -25,8 +25,8 @@
       {% for tweet in tweets %}
         <!--<li>{{tweet.name}}<br />{{tweet.text}}</li>-->
 
-        <div id="newTweet" class="tweetbox"><img>
-        <div class="content"><a href="/users/{{tweet.name}}">{{tweet.name}}</a> - {{ tweet.text }}<br /><a href="/users/{{tweet.name}}/tweets/{{tweet.id}}">Read Tweet</a></div>
+        <div class="tweetbox"><img>
+        <div class="content"><a href="/users/{{tweet.name}}">{{tweet.name}}</a> - {{ tweet.text }}<br /><a href="/users/{{tweet.name}}/tweets/{{tweet.id}}">Re-tweet</a></div>
         </div>
       {% endfor %}
 
